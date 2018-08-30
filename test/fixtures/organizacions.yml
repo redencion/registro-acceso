@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  fecha_registro: 2018-08-30 16:55:26
+  estatus: false
+
+two:
+  nombre: MyString
+  fecha_registro: 2018-08-30 16:55:26
+  estatus: false
