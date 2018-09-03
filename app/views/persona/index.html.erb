@@ -19,7 +19,7 @@
   <tbody>
     <% @personas.each do |persona| %>
       <tr>
-        <td><%= persona.organizacion %></td>
+        <td><%= persona.organizacion.nombre %></td>
         <td><%= persona.cedula %></td>
         <td><%= persona.nombre %></td>
         <td><%= persona.apellido %></td>
