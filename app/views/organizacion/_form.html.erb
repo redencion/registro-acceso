@@ -1,2 +1,21 @@
 <h1>Organizacion#_form</h1>
-<p>Find me in app/views/organizacion/_form.html.erb</p>
+
+<%= form_for (@org), url:organizacion_path do |f| %>
+    <% if @org.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@org.errors.count, "error" ) %> falló:</h2>
+            <ul>
+                <% @org.errors.full_messages.each do |message| %>
+                    <li> <%= message %></li>
+                <%end%>
+            </ul>
+        </div>
+    <% end %>
+<div class="field">
+    <%= f.label :nombre%><br>
+    <%= f.text_field :nombre%><br>
+</div>
+<div class="actions">
+    <%= f.submit %>
+</div>
+<% end %>
