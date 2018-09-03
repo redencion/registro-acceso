@@ -1,0 +1,27 @@
+<p id="notice"> <%= notice %></p>
+
+<h1>Listando Informacion </h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Fecha registro</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @organizacion.each do |org| %>
+          <tr>
+            <td><%= org.nombre %></td>
+            <td><%= org.fecha_registro %></td>
+            <td><%= link_to 'mostrar', organizacion_path %></td>
+            <td><%= link_to 'editar', organizacion_editar_path(org) %></td>
+          </tr>
+        <%end%>
+    </tbody>
+</table>
+<br>
+<%= link_to 'Registrar Organizacion', organizacion_registrar_path %>
+
+
+
