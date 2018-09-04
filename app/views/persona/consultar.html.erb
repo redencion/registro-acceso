@@ -1,15 +1,5 @@
+<% # it's search form persona %>
 <%= form_for (@persona), url:persona_url do |form| %>
-  <% if persona.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(persona.errors.count, "error") %> No ha sido realizado el Registro de esta persona:</h2>
-
-      <ul>
-      <% persona.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= form.label :organizacion_id %>
@@ -43,6 +33,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit "Registrar" %>
+    <%= form.submit "buscar Persona" %>
   </div>
 <% end %>
