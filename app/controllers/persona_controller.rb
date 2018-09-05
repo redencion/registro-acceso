@@ -12,6 +12,16 @@ class PersonaController < ApplicationController
   def mostrar
   end
 
+  #GET /personas/busqueda
+
+  def buscar
+    @persona = Persona.new
+  end
+
+  def buscando
+    @persona = Persona.new(persona_params)
+  end
+
   # GET /personas/new
   def registrar
     @persona = Persona.new
@@ -28,10 +38,10 @@ class PersonaController < ApplicationController
 
     respond_to do |format|
       if @persona.save
-        format.html { redirect_to @persona, notice: 'Persona was successfully created.' }
-        format.json { render :show, status: :created, location: @persona }
+        format.html { redirect_to @persona, notice: ' ¡Persona ha sido creado satifactoriamente! ' }
+        format.json { render :mostrar, status: :created, location: @persona }
       else
-        format.html { render :new }
+        format.html { render :registrar }
         format.json { render json: @persona.errors, status: :unprocessable_entity }
       end
     end

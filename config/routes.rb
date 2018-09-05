@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   #This routes Persona controller and model
   get "persona", to: "persona#index"
   post "persona", to: "persona#registrarPersona"
+  post "persona/buscando", to: "persona#buscando"
+  get "persona/buscar"
   get "persona/registrar"
-  get "persona/:id", to:  "persona#mostrar", as: "persona_mostrar"
-  get "persona/:id/editar" => "persona#editar", as: "persona_editar"
-
+  get "persona/:id/mostrar", to:  "persona#mostrar", as: "persona_mostrar"
+  get "persona/:id/editar", to: "persona#editar", as: "persona_editar"
 end
