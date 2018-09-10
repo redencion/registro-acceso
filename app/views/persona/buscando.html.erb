@@ -1,0 +1,16 @@
+<h2>Resultados de Busqueda</h2>
+
+<p><%= link_to 'Buscar', persona_buscar_url %></p>
+
+<% if @persona.buscarPersona.empty? %>
+    <p> No se encontró información </p>
+<% else %>
+    <% @persona.buscarPersona.each do |c| %>
+        <br>
+        <div class="div">
+        <p>Nombre: <%= c.nombre %></p>
+        <p>apellido: <%= c.apellido %></p>
+        <p>cedula: <%= c.cedula %></p>
+        <p>fecha ingreso: <%= c.cedula %></p>
+    <%end%>
+<%end%>

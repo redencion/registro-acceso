@@ -14,4 +14,15 @@ class Persona < ApplicationRecord
 
     return personas
   end
+  
+  def buscarDatosPersonaCredencial( credencialPersona )
+    
+    datosPersona =  Persona.select(id, nombre, apellido, cedula).where("credencial = ? and estatus= ?",credencialPersona, true)
+
+    if !datosPersona.empty?
+      puts "Existen datos asociados a esta credencial !"
+    else
+      puts "¡No existe información asociada a esta credencial #{credencial}! "
+    end
+  end
 end

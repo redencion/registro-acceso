@@ -13,8 +13,10 @@
 ActiveRecord::Schema.define(version: 0) do
 
   create_table "Acceso", primary_key: "acceso_id", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.integer "persona_id", null: false
     t.timestamp "fecha_entrada", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.timestamp "fecha_salida", default: "2000-01-01 00:00:00", null: false
+    t.index ["persona_id"], name: "persona_id"
   end
 
   create_table "Organizacion", primary_key: "organizacion_id", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
@@ -47,6 +49,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["persona_id"], name: "persona_id"
   end
 
+  add_foreign_key "Acceso", "Persona", column: "persona_id", primary_key: "persona_id", name: "Acceso_ibfk_1"
   add_foreign_key "Persona", "Organizacion", column: "organizacion_id", primary_key: "organizacion_id", name: "Persona_ibfk_1"
   add_foreign_key "Usuario", "Persona", column: "persona_id", primary_key: "persona_id", name: "Usuario_ibfk_1"
 end

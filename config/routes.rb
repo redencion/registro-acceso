@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  #routes Acceso 
+  get 'acceso', to: 'acceso#index'
+  get 'acceso/verificacion'
   #resources :persona
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get  "organizacion", to: "organizacion#index"
@@ -15,4 +18,6 @@ Rails.application.routes.draw do
   get "persona/registrar"
   get "persona/:id/mostrar", to:  "persona#mostrar", as: "persona_mostrar"
   get "persona/:id/editar", to: "persona#editar", as: "persona_editar"
+
+
 end

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  persona: one
+  fecha_entrada: 2018-09-10 09:16:01
+  fecha_salida: 2018-09-10 09:16:01
+
+two:
+  persona: two
+  fecha_entrada: 2018-09-10 09:16:01
+  fecha_salida: 2018-09-10 09:16:01

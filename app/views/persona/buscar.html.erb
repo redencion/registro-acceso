@@ -1,0 +1,38 @@
+<h2> Busqueda avanzada </h2>
+<%= form_for @persona, url: persona_buscando_url, :html => {:method => :post} do |form| %>
+
+  <div class="field">
+    <%= form.label :organizacion_id %>
+    <%= form.text_field :organizacion_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cedula %>
+    <%= form.text_field :cedula %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :apellido %>
+    <%= form.text_field :apellido %>
+  </div>
+
+  <div class="field">
+    <%= form.label :credencial %>
+    <%= form.text_field :credencial %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :estatus %>
+    <%= form.check_box :estatus %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "buscar Persona" %>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+<h2>Por favor agregue aqui su credencial</h2>
+
+<%= form_tag("/acceso", method: "get") do  %>
+    <div class="field">
+        <%= label_tag :Credencial, "Agregue su Credencial"%><br>
+    <%= text_field_tag 'acceso[persona]', @acceso.acceso_persona %><br>
+</div>
+<div class="actions">
+    <%= submit_tag("Guardar") %>
+</div>
+<% end %>
