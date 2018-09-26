@@ -1,9 +1,9 @@
 class Persona < ApplicationRecord
   self.table_name = 'Persona'
-  validates :nombre, :apellido, :cedula, :credencial,  presence: {message: "\t EL campo es requerido"}
+  validates :nombre, :apellido, :cedula, :credencial, :organizacion_id,   presence: {message: "\t EL campo es requerido"}
   validates :cedula, :credencial, uniqueness: {message: "\t¡El dato ya existe!"}
-
   belongs_to :organizacion
+
 
   def buscarPersona
     personas = Persona.all
@@ -20,7 +20,8 @@ class Persona < ApplicationRecord
     datosPersona =  Persona.select(id, nombre, apellido, cedula).where("credencial = ? and estatus= ?",credencialPersona, true)
 
     if !datosPersona.empty?
-      puts "Existen datos asociados a esta credencial !"
+      #puts "Existen datos asociados a esta credencial !"
+      return datosPersona
     else
       puts "¡No existe información asociada a esta credencial #{credencial}! "
     end

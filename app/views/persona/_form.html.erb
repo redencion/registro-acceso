@@ -1,4 +1,4 @@
-<%= form_for (@persona), url:persona_url do |form| %>
+<%= form_for (@persona), validate: true,  url:persona_url do |form| %>
   <% if persona.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(persona.errors.count, "error") %> No ha sido realizado el Registro de esta persona:</h2>
@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :organizacion_id %>
-    <%= form.text_field :organizacion_id %>
+      <%= form.label :organizacion_id %>
+      <%= select("persona","organizacion_id", Organizacion.all.collect {|o| [ o.nombre, o.organizacion_id ]}, {prompt: 'Selecciona'})%>
   </div>
 
   <div class="field">

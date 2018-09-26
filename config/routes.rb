@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   #routes Acceso 
   get 'acceso', to: 'acceso#index'
-  get 'acceso/verificacion'
+  post 'acceso', to: 'acceso#verificacion'
+
+  #routes verificacion
+  get 'verificacion', to: 'verificacion#index'
+  post 'verificacion', to: 'verificacion#credencial'
+
   #resources :persona
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get  "organizacion", to: "organizacion#index"
