@@ -1,10 +1,7 @@
-<h2>Resultados de Busqueda</h2>
-
-<p><%= link_to 'Buscar', persona_buscar_url %></p>
-
 <% if @persona.buscarPersona.empty? %>
     <p> No se encontró información </p>
 <% else %>
+     <h2>¡Saludos, que pase un feliz Día!</h2>
     <% @persona.buscarPersona.each do |c| %>
         <br>
         <div class="div">

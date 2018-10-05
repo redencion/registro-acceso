@@ -7,18 +7,23 @@ class VerificacionController < ApplicationController
   def credencial
    @verificacion = Verificacion.new(verificacion_params)
 
-   respond_to do |format|
+
     if @verificacion.valid?(:verificacion)
-      params[:credencial] = @verificacion.credencial
-      @persona = Persona.new({
-          credencial: @verificacion.credencial
-      })
-      format.html { render '/persona/buscando'  }
+
+      Persona.find_by credencial: @verificacion.credencial
+        @persona = Persona.new({
+            credencial: @verificacion.credencial
+        })
+        @datos = @persona.buscarPersona
+        #respond_to do |format|
+        #  format.html { render '/verificando/_credencial'  }
+        #  format.js
+        # end
+      
     else
       format.html { render :index  }
-      format.json { render json: @verificacion.errors, status: :unprocessable_entity  }
+      #format.json { render json: @verificacion.errors, status: :unprocessable_entity  }
     end
-   end
   end
 
   private

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get "persona", to: "persona#index"
   post "persona", to: "persona#registrarPersona"
   post "persona/buscando", to: "persona#buscando"
+  post "persona/verificando", to: "persona#verificando"
   get "persona/buscar"
   get "persona/registrar"
   get "persona/:id/mostrar", to:  "persona#mostrar", as: "persona_mostrar"

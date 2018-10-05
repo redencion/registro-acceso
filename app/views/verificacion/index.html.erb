@@ -1,7 +1,9 @@
+<div class="datoEmpleados">
 
+</div>
 <h2>Ingrese su credencial</h2>
 
-<%= form_tag("/verificacion", method: "post") do %>
+<%= form_tag("/verificacion", id: "form_verificacion", method: "post") do %>
     <% if @verificacion.errors.any? %>
         <div id="error_explanation">
             <h2> Existen errores:</h2>
