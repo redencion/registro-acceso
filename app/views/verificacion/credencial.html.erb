@@ -1,14 +1,12 @@
 
-<% if !@datos.exists? %>
+<% if @datos.nil? %>
     <p> Disculpe el usuario no existe! </p>
 <% else %>
      <h2>¡Saludos, que pase un feliz Día!</h2>
-    <% @datos.each do |c| %>
         <br>
         <div class="div">
-        <p>Nombre: <%= c.nombre %></p>
-        <p>apellido: <%= c.apellido %></p>
-        <p>cedula: <%= c.cedula %></p>
-        <p>fecha ingreso: <%= c.fecha_registro %></p>
-    <%end%>
+        <p>Nombre: <%= @datos.nombre %></p>
+        <p>apellido: <%= @datos.apellido %></p>
+        <p>cedula: <%= @datos.cedula %></p>
+        <p>fecha ingreso: <%= @datos.fecha_registro %></p>
 <%end%>

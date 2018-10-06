@@ -31,9 +31,13 @@ gem 'jquery-rails'
 
 gem 'client_side_validations'
  #  github: 'DavyJonesLocker/client_side_validations', branch: 'rails5' 
+#
+gem 'sass-rails', '~> 5.0'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
+gem 'materialize-sass', '~> 1.0.0'
+gem 'material_icons'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

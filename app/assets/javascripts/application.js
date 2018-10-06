@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require rails.validations
 //= require_tree .
+//= require materialize
 
     $(document).ready(function(){
         var inputBusqueda;
@@ -26,5 +27,8 @@
 
                 });
         })
+        $(document).ready(function(){
+                $('select').formSelect();
+        });
 
     })

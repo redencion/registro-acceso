@@ -7,18 +7,17 @@ class VerificacionController < ApplicationController
   def credencial
    @verificacion = Verificacion.new(verificacion_params)
 
-
     if @verificacion.valid?(:verificacion)
 
-      Persona.find_by credencial: @verificacion.credencial
-        @persona = Persona.new({
-            credencial: @verificacion.credencial
-        })
-        @datos = @persona.buscarPersona
+      @datos = Persona.find_by credencial: @verificacion.credencial
+      if !@datos.nil?
+        @acceso = Acceso.new
+        @acceso.establecerEntradaSalida (@datos.id)
         #respond_to do |format|
         #  format.html { render '/verificando/_credencial'  }
         #  format.js
         # end
+      end
       
     else
       format.html { render :index  }

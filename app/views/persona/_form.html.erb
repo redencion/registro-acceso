@@ -1,48 +1,57 @@
-<%= form_for (@persona), validate: true,  url:persona_url do |form| %>
-  <% if persona.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(persona.errors.count, "error") %> No ha sido realizado el Registro de esta persona:</h2>
+<div class="row">
+    <%= form_for @persona, :html => {:class => 'col s12'}, validate: true,  url:persona_url do |form| %>
+        <% if persona.errors.any? %>
+            <div id="error_explanation">
+                <h2><%= pluralize(persona.errors.count, "error") %> No ha sido realizado el Registro de esta persona:</h2>
 
-      <ul>
-      <% persona.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+                <ul>
+                    <% persona.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
 
-  <div class="field">
-      <%= form.label :organizacion_id %>
-      <%= select("persona","organizacion_id", Organizacion.all.collect {|o| [ o.nombre, o.organizacion_id ]}, {prompt: 'Selecciona'})%>
-  </div>
+        <div class="row">
+            <div class="input-field col s4">
+                    <%= form.label :organizacion_id %>
+                    <%= select("persona","organizacion_id", Organizacion.all.collect {|o| [ o.nombre, o.organizacion_id ]}, {prompt: 'Selecciona'})%>
+            </div>
 
-  <div class="field">
-    <%= form.label :cedula %>
-    <%= form.text_field :cedula %>
-  </div>
+            <div class="input-field col s4">
+                <%= form.label :cedula %>
+                <%= form.text_field :cedula, 'data-length': '10', id: "input_text" %>
+            </div>
+        </div>
 
-  <div class="field">
-    <%= form.label :nombre %>
-    <%= form.text_field :nombre %>
-  </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <%= form.label :nombre %>
+                <%= form.text_field :nombre %>
+            </div>
 
-  <div class="field">
-    <%= form.label :apellido %>
-    <%= form.text_field :apellido %>
-  </div>
+            <div class="input-field col s4">
+                <%= form.label :apellido %>
+                <%= form.text_field :apellido %>
+            </div>
+        </div>
 
-  <div class="field">
-    <%= form.label :credencial %>
-    <%= form.text_field :credencial %>
-  </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <%= form.label :credencial %>
+                <%= form.text_field :credencial %>
+            </div>
 
 
-  <div class="field">
-    <%= form.label :estatus %>
-    <%= form.check_box :estatus %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Registrar" %>
-  </div>
-<% end %>
+            <div class="input-field col s4">
+                <%= form.label :estatus %>
+                <%= form.check_box :estatus %>
+            </div>
+        </div>
+        <div class="actions">
+          <button class="btn waves-effect waves-light" type="submit" name="action">Registrar
+              <i class="material-icons right">send</i>
+          </button>
+        </div> 
+    <% end %>
+</div>
