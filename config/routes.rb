@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   #routes verificacion
   get 'verificacion', to: 'verificacion#index'
-  post 'verificacion', to: 'verificacion#credencial'
+  post 'verificacion', to: 'verificacion#buscando'
+  get 'verificacion/credencial', to: 'verificacion#credencial'
 
   #resources :persona
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

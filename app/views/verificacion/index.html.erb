@@ -1,21 +1,27 @@
 <div class="datoEmpleados">
 
 </div>
-<h2>Ingrese su credencial</h2>
 
-<%= form_tag("/verificacion", id: "form_verificacion", method: "post") do %>
-    <% if @verificacion.errors.any? %>
-        <div id="error_explanation">
-            <h2> Existen errores:</h2>
-            <ul>
-                <% @verificacion.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-            </ul>
-        </div>
-    <% end %>
-    <div class="field">
-        <%= label_tag :verificacion_credencial, "Agregue su Credencial"%><br>
-        <%= text_field_tag "verificacion[credencial]",  @verificacion.credencial %><br>
-    </div>
-<% end %>
+<div class="row">
+    <h2>Ingrese su credencial</h2>
+
+    <%= form_tag("/verificacion", id: "form_verificacion", method: "post", remote: true) do %>
+        <div class="row"
+            <% if @verificacion.errors.any? %>
+                <div id="error_explanation">
+                    <h2> Existen errores:</h2>
+                    <ul>
+                        <% @verificacion.errors.full_messages.each do |message| %>
+                            <li><%= message %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
+            <div class="row">
+                <div class="input-field col s6">
+                    <%= label_tag :verificacion_credencial, "Agregue su Credencial"%><br>
+                    <%= text_field_tag "verificacion[credencial]",  @verificacion.credencial %><br>
+                </div>
+            </div>
+        <% end %>
+</div>

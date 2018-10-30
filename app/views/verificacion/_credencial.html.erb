@@ -1,0 +1,12 @@
+
+<% if @datos.nil? %>
+    <p> Disculpe el usuario no existe! </p>
+<% else %>
+     <h2>¡Saludos, que pase un feliz Día!</h2>
+        <br>
+        <div class="div">
+        <p>Nombre: <%= @datos.nombre %></p>
+        <p>apellido: <%= @datos.apellido %></p>
+        <p>cedula: <%= @datos.cedula %></p>
+        <p>fecha ingreso: <%= @datos.fecha_registro %></p>
+<%end%>

@@ -19,14 +19,14 @@
 //= require materialize
 
     $(document).ready(function(){
-        var inputBusqueda;
+     /*   var inputBusqueda;
         $("#verificacion_credencial").change(function(){
                 $.post('/verificacion', $("#form_verificacion").serialize(), function (data){
                     //$(".datoEmpleado").html(data);
-                    $(".datoEmpleados").html(data);
+                    $(".datoEmpleado").append(data);
 
                 });
-        })
+        })*/
         $(document).ready(function(){
                 $('select').formSelect();
         });

@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "Acceso", primary_key: "acceso_id", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "persona_id", null: false
     t.timestamp "fecha_entrada", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.timestamp "fecha_salida", default: "2000-01-01 00:00:00", null: false
+    t.timestamp "fecha_salida"
     t.index ["persona_id"], name: "persona_id"
   end
 
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "Usuario", primary_key: "usuario_id", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "persona_id", null: false
     t.string "nombre", limit: 100, null: false
-    t.string "pass", limit: 100, null: false
+    t.string "password_digest", limit: 100, null: false
     t.timestamp "fecha_registro", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.boolean "estatus", default: true, null: false
     t.index ["nombre"], name: "nombre", unique: true

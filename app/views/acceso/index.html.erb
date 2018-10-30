@@ -2,8 +2,8 @@
   
 </div>
 
+<div class="row">
 <h2>Por favor agregue aqui su credencial</h2>
-
 <%= form_tag("/acceso", method: "post") do  %>
     <% if @verificacion.errors.any? %>
         <div id="error_explanation">
@@ -15,11 +15,14 @@
             </ul>
         </div>
     <% end %>
-    <div class="field">
+    <div class="row"
+        <div class="input-field col s6">
         <%= label_tag :Credencial, "Agregue su Credencial"%><br>
         <%= text_field_tag "verificacion['persona']",  @verificacion.persona %><br>
+    </div>
     </div>
     <div class="actions">
         <%= submit_tag("verificar") %>
     </div>
+</div>
 <% end %>

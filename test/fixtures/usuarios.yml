@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  persona: one
+  nombre: MyString
+  password_digest: MyString
+  fecha_registro: 2018-10-30 08:46:03
+  estatus: false
+
+two:
+  persona: two
+  nombre: MyString
+  password_digest: MyString
+  fecha_registro: 2018-10-30 08:46:03
+  estatus: false
