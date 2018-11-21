@@ -1,16 +1,17 @@
 <h1>Organizacion#_form</h1>
 
-<%= form_for (@org), url:organizacion_path do |f| %>
-    <% if @org.errors.any? %>
-        <div id="error_explanation">
-            <h2><%= pluralize(@org.errors.count, "error" ) %> falló:</h2>
-            <ul>
-                <% @org.errors.full_messages.each do |message| %>
-                    <li> <%= message %></li>
-                <%end%>
-            </ul>
-        </div>
-    <% end %>
+<!--form_for (@org) do |f| -->
+<%= form_with(model: org, url: organizacion_path(org), local: true)   do |f| %>
+<% if @org.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@org.errors.count, "error" ) %> falló:</h2>
+        <ul>
+            <% @org.errors.full_messages.each do |message| %>
+                <li> <%= message %></li>
+            <%end%>
+        </ul>
+    </div>
+<% end %>
 <div class="field">
     <%= f.label :nombre%><br>
     <%= f.text_field :nombre%><br>
@@ -19,3 +20,12 @@
     <%= f.submit %>
 </div>
 <% end %>
+<script>
+  var input = document.querySelector('form');
+  var url =  String(input.action);
+  if (url.match(/\./g)) {
+      var nueva_url = url.replace(/http:\/\/localhost:3000/g,"");
+      //nueva_url = url.replace(/\./g,"/");
+      input.action= nueva_url.replace(/\./g,"/");
+  }
+</script>

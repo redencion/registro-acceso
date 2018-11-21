@@ -1,0 +1,20 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Organizacion:</strong>
+  <%= @org.nombre %>
+</p>
+
+
+<p>
+  <strong>Fecha Registro:</strong>
+  <%= @org.fecha_registro %>
+</p>
+<p>
+  <strong>Estatus:</strong>
+  <%= @org.estatus %>
+</p>
+
+<%= link_to 'Editar', organizacion_editar_path(@org) %> |
+<%= link_to 'Volver', organizacion_path %>

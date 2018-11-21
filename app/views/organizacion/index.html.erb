@@ -14,14 +14,14 @@
           <tr>
             <td><%= org.nombre %></td>
             <td><%= org.fecha_registro %></td>
-            <td><%= link_to 'mostrar', organizacion_path %></td>
+            <td><%= link_to 'mostrar', organizacion_mostrar_path(org) %></td>
             <td><%= link_to 'editar', organizacion_editar_path(org) %></td>
           </tr>
         <%end%>
     </tbody>
 </table>
 <br>
-<%= link_to 'Registrar Organizacion', organizacion_registrar_path %>
+<%= link_to 'Registrar Organizacion', organizacion_nueva_path %>
 
 
 

@@ -1,8 +1,4 @@
 class Usuario < ApplicationRecord
-  belongs_to :persona
-  # Información de la entidad
   self.table_name = 'Usuario'
-
-
-
+  has_secure_password
 end

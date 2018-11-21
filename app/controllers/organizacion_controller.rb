@@ -1,5 +1,7 @@
 class OrganizacionController < ApplicationController
-  before_action  :set_organizacion, only: [:mostrar, :actualizar, :editar, :eliminar]
+  protect_from_forgery with: :exception
+  before_action :autorizado
+  before_action :set_organizacion, only: [:mostrar, :actualizar, :editar, :eliminar]
 
   def index
     @organizacion = Organizacion.all  
@@ -10,15 +12,14 @@ class OrganizacionController < ApplicationController
   end
 
   def editar
-    
   end
   
   def mostrar
   end
 
-  def set_organizacion
-    @org = Organizacion.find(params[:id])
+  def show
   end
+
 
   def registrarOrganizacion
    @org = Organizacion.new(organizacion_params)
@@ -33,6 +34,18 @@ class OrganizacionController < ApplicationController
    end
   end
 
+  def actualizar
+    respond_to do |format|
+      if @org.update(organizacion_params)
+        format.html { redirect_to organizacion_path , notice: 'Organizacion was successfully updated.' }
+        format.json { render :mostrar, status: :ok, location: @org }
+      else
+        format.html { render :editar }
+        format.json { render json: @org.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
   def set_organizacion
@@ -40,7 +53,7 @@ class OrganizacionController < ApplicationController
   end
 
   def organizacion_params
-    params.require(:organizacion).permit(:nombre)
+    params.require(:organizacion).permit(:organizacion_id,:nombre)
   end
 
 

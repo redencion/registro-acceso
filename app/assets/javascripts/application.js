@@ -30,5 +30,9 @@
         $(document).ready(function(){
                 $('select').formSelect();
         });
+        $(document).on("turbolinks:load",function() {
+              $.rails.refreshCSRFTokens();
+
+        })
 
     })

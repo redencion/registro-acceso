@@ -1,5 +1,6 @@
 class PersonaController < ApplicationController
-  before_action :set_persona, only: [:mostrar, :editar, :update, :destroy]
+  before_action :autorizado, :set_persona, only: [:mostrar, :editar, :actualizar, :destroy] 
+  #before_action :set_persona, only: [:mostrar, :editar, :update, :destroy]
 
   # GET /personas
   # GET /personas.json
@@ -49,7 +50,7 @@ class PersonaController < ApplicationController
 
   # PATCH/PUT /personas/1
   # PATCH/PUT /personas/1.json
-  def update
+  def actualizar
     respond_to do |format|
       if @persona.update(persona_params)
         format.html { redirect_to @persona, notice: 'Persona was successfully updated.' }
@@ -79,6 +80,6 @@ class PersonaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def persona_params
-      params.require(:persona).permit(:organizacion_id, :cedula, :nombre, :apellido, :credencial, :fecha_registro, :estatus)
+      params.require(:persona).permit(:organizacion_id,:persona_id, :cedula, :nombre, :apellido, :credencial, :fecha_registro, :estatus)
     end
 end

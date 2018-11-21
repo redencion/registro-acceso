@@ -1,0 +1,29 @@
+
+<div class="row">
+    <% if flash[:alert] %>
+        <p id="notice"><%= flash[:alert] %></p>
+    <% end %>
+
+    <%=  form_tag(method: "post") do %>
+        <div class='col s10' >
+        <fieldset>
+            <legend>Inicie Sesion </legend>
+            <div class="row">
+                <div class="input-field col s6">
+                    <%= label_tag :usuario, "Correo: "%><br>
+                    <%= text_field_tag :correo, params[:correo] %><br>
+                </div>
+            </div>
+            <div class='row'>
+                <div class="input-field col s6">
+                    <%= label_tag :usuario, "password"%><br>
+                    <%= text_field_tag :password, params[:password] %><br>
+                </div>
+            </div>
+            <div class='row'>
+                <%= submit_tag "Login" %>
+            </div>
+        </fieldset>
+        </div>
+        <% end %>
+</div>

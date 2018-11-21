@@ -40,16 +40,14 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "Usuario", primary_key: "usuario_id", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.integer "persona_id", null: false
     t.string "nombre", limit: 100, null: false
-    t.string "password_digest", limit: 100, null: false
+    t.string "pass", limit: 100, null: false
+    t.string "correo", limit: 100, null: false
     t.timestamp "fecha_registro", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.boolean "estatus", default: true, null: false
+    t.index ["correo"], name: "correo", unique: true
     t.index ["nombre"], name: "nombre", unique: true
-    t.index ["persona_id"], name: "persona_id"
   end
 
-  add_foreign_key "Acceso", "Persona", column: "persona_id", primary_key: "persona_id", name: "Acceso_ibfk_1"
   add_foreign_key "Persona", "Organizacion", column: "organizacion_id", primary_key: "organizacion_id", name: "Persona_ibfk_1"
-  add_foreign_key "Usuario", "Persona", column: "persona_id", primary_key: "persona_id", name: "Usuario_ibfk_1"
 end
