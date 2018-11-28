@@ -46,6 +46,13 @@ class OrganizacionController < ApplicationController
     end
   end
 
+  def eliminar
+    @org.destroy
+    respond_to do |format|
+      format.html { redirect_to organizacion_path, notice: '¡La organizacion fue eliminada satisfactoriamente!' }
+      format.json { head :no_content }
+    end
+  end
   private
 
   def set_organizacion

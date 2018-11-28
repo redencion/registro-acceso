@@ -5,13 +5,13 @@
 <table>
   <thead>
     <tr>
-      <th>Organizacion</th>
-      <th>Cedula</th>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Credencial</th>
-      <th>Fecha registro</th>
-      <th>Estatus</th>
+        <th><%= link_to "Organizacion", :sort => "organizacion"%> </th>
+        <th> <%= link_to "Cedula", :sort => "cedula" %></th>
+        <th><%= link_to "Nombre", :sort => "nombre"%></th>
+        <th><%= link_to "apellido", :sort => "apellido"%></th>
+        <th><%= link_to "Credencial", :sort=> "credencial" %></th>
+        <th><%= link_to "Fecha registro", :sort=> "fecha_registro" %></th>
+        <th><%= link_to "estatus", :sort=> "estatus" %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,13 +26,15 @@
         <td><%= persona.credencial %></td>
         <td><%= persona.fecha_registro %></td>
         <td><%= persona.estatus %></td>
-        <td><%= link_to 'Mostrar', persona_mostrar_url(persona) %></td>
-        <td><%= link_to 'Editar', persona_editar_url(persona) %></td>
+        <td><%= link_to '<i class="material-icons"> explore</i>'.html_safe, persona_mostrar_url(persona) %></td>
+        <td><%= link_to '<i class="material-icons"> create'.html_safe, persona_editar_url(persona) %></td>
+        <td><%= link_to '<i class="material-icons"> delete'.html_safe, persona_eliminar_url(persona), method: :delete, data: { confirm: 'Esta seguro de eliminar esta persona!?' } %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
+  <%= will_paginate @personas %>
 <br>
 
 <%= link_to 'New Persona', persona_registrar_url %>

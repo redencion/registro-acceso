@@ -1,5 +1,5 @@
 class UsuarioController < ApplicationController
-  before_action :set_usuario, only: [:mostrar, :editar, :actualizar, :destroy] 
+  before_action :set_usuario, only: [:mostrar, :editar, :actualizar, :eliminar] 
   
   def index
     @usuario = Usuario.all
@@ -36,6 +36,13 @@ class UsuarioController < ApplicationController
       end
     end
   end
+  def eliminar
+    @usuario.destroy
+    respond_to do |format|
+      format.html { redirect_to usuario_path, notice: '¡el usuario fue eliminado satisfactoriamente!' }
+      format.json { head :no_content }
+    end
+  end
 
   private
     def set_usuario
@@ -46,3 +53,4 @@ class UsuarioController < ApplicationController
        params.require(:usuario).permit(:nombre, :password,:correo, :fecha_registro, :estatus)
     end
 end
+

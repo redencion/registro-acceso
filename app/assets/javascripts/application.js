@@ -34,5 +34,10 @@
               $.rails.refreshCSRFTokens();
 
         })
+        $(document).ready(function(){
+                $('.tooltipped').tooltip();
+
+        });
+
 
     })

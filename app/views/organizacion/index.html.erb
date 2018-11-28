@@ -16,6 +16,7 @@
             <td><%= org.fecha_registro %></td>
             <td><%= link_to 'mostrar', organizacion_mostrar_path(org) %></td>
             <td><%= link_to 'editar', organizacion_editar_path(org) %></td>
+             <td><%= link_to 'Eliminar', organizacion_eliminar_url(org), method: :delete, data: { confirm: 'Esta seguro de eliminar esta organizacion!?' } %></td>
           </tr>
         <%end%>
     </tbody>

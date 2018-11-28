@@ -29,6 +29,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'jquery-rails'
 
+gem 'will_paginate', '>=3.1'
+
+
 gem 'client_side_validations'
  #  github: 'DavyJonesLocker/client_side_validations', branch: 'rails5' 
 #

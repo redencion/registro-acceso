@@ -1,12 +1,9 @@
 <div class="row">
     <div class="col s12">
-        <!-- f_for @persona, :html => {:class => 'col s12'}, validate: true,  url:persona_url do |f| -->
         <%= form_with model: persona,  url: persona_path(persona) , local: true do |f| %>
-            
             <% if persona.errors.any? %>
                 <div id="error_explanation">
                     <h2><%= pluralize(persona.errors.count, "error") %> No ha sido realizado el Registro de esta persona:</h2>
-
                     <ul>
                         <% persona.errors.full_messages.each do |message| %>
                             <li><%= message %></li>
@@ -14,38 +11,31 @@
                     </ul>
                 </div>
             <% end %>
-
             <div class="row">
                 <div class="input-field col s4">
                     <%= f.label :organizacion_id %>
                     <%= select("persona","organizacion_id", Organizacion.all.collect {|o| [ o.nombre, o.organizacion_id ]}, {prompt: 'Selecciona'})%>
                 </div>
-
                 <div class="input-field col s4">
                     <%= f.label :cedula %>
                     <%= f.text_field :cedula, 'data-length': '10', id: "input_text" %>
                 </div>
             </div>
-
             <div class="row">
                 <div class="input-field col s4">
                     <%= f.label :nombre %>
                     <%= f.text_field :nombre %>
                 </div>
-
                 <div class="input-field col s4">
                     <%= f.label :apellido %>
                     <%= f.text_field :apellido %>
                 </div>
             </div>
-
             <div class="row">
                 <div class="input-field col s4">
                     <%= f.label :credencial %>
                     <%= f.text_field :credencial %>
                 </div>
-
-
                 <div class="input-field col s4">
                     <%= f.label :estatus %>
                     <%= f.check_box :estatus %>
@@ -62,10 +52,8 @@
 <script>
 var input = document.querySelector('form');
 var url =  String(input.action);
-alert(url);
   if (url.match(/\./g)) {
       var nueva_url = url.replace(/http:\/\/localhost:3000/g,"");
-      //nueva_url = url.replace(/\./g,"/");
       input.action= nueva_url.replace(/\./g,"/");
   }
 </script>

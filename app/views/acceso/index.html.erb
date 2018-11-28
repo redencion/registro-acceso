@@ -1,28 +1,24 @@
-<div class="datoEmpleado">
-  
-</div>
 
-<div class="row">
-<h2>Por favor agregue aqui su credencial</h2>
-<%= form_tag("/acceso", method: "post") do  %>
-    <% if @verificacion.errors.any? %>
-        <div id="error_explanation">
-            <h2>There were some errors:</h2>
-            <ul>
-                <% @verificacion.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-            </ul>
-        </div>
-    <% end %>
-    <div class="row"
-        <div class="input-field col s6">
-        <%= label_tag :Credencial, "Agregue su Credencial"%><br>
-        <%= text_field_tag "verificacion['persona']",  @verificacion.persona %><br>
-    </div>
-    </div>
-    <div class="actions">
-        <%= submit_tag("verificar") %>
-    </div>
-</div>
-<% end %>
+<h1>Listando Informacion </h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Empleado</th>
+            <th>Entrada</th>
+            <th>Salida</th>
+        </tr>
+    </thead>
+    <tbody>
+       <% @acceso.each do |acces| %>
+          <tr>
+            <td><%= acces.persona.nombre %></td>
+            <td><%= acces.fecha_entrada %></td>
+            <td><%= acces.fecha_salida %></td>
+          </tr>
+        <%end%>
+    </tbody>
+</table>
+<br>
+<%= link_to 'Registrar Organizacion', organizacion_nueva_path %>
+

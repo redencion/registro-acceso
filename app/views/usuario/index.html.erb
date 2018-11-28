@@ -3,6 +3,7 @@
 
 <h1>Usuarios</h1>
 
+ <%= link_to '<i class="material-icons"> add_circle_outline</i> '.html_safe, usuario_path  %>
 <table>
   <thead>
     <tr>
@@ -21,9 +22,9 @@
         <td><%= usuario.correo %></td>
         <td><%= usuario.fecha_registro %></td>
         <td><%= usuario.estatus %></td>
-        <td><%= link_to 'mostrar', usuario %></td>
-        <td><%= link_to 'editar', usuario_editar_path(usuario) %></td>
-        <td><%= link_to 'eliminar', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to  '<i class="material-icons"> add_circle_outline</i>'.html_safe, usuario_path  %> </td>
+        <td><%= link_to '<i class="material-icons"> create </i>'.html_safe, usuario_editar_path(usuario) %></td>
+        <td><%= link_to '<i class="material-icons"> delete </i>'.html_safe, usuario, method: :delete, data: { confirm: '¿ Estás seguro de querer eliminar el usuario?' } %></td>
       </tr>
     <% end %>
   </tbody>

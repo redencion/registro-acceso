@@ -1,11 +1,12 @@
 class PersonaController < ApplicationController
-  before_action :autorizado, :set_persona, only: [:mostrar, :editar, :actualizar, :destroy] 
+  before_action :autorizado, :set_persona, only: [:mostrar, :editar, :actualizar, :eliminar] 
   #before_action :set_persona, only: [:mostrar, :editar, :update, :destroy]
 
   # GET /personas
   # GET /personas.json
   def index
-    @personas = Persona.all
+    @personas = Persona.order(params[:sort]).page(params[:page]).per_page(2)
+    #@personas = Persona.all
   end
 
   # GET /personas/1
@@ -39,7 +40,7 @@ class PersonaController < ApplicationController
 
     respond_to do |format|
       if @persona.save
-        format.html { redirect_to @persona, notice: ' ¡Persona ha sido creado satifactoriamente! ' }
+        format.html { redirect_to :index, notice: ' ¡Persona ha sido creado satifactoriamente! ' }
         format.json { render :mostrar, status: :created, location: @persona }
       else
         format.html { render :registrar }
@@ -64,10 +65,10 @@ class PersonaController < ApplicationController
 
   # DELETE /personas/1
   # DELETE /personas/1.json
-  def destroy
+  def eliminar
     @persona.destroy
     respond_to do |format|
-      format.html { redirect_to personas_url, notice: 'Persona was successfully destroyed.' }
+      format.html { redirect_to persona_url, notice: '¡La persona fue eliminada satisfactoriamente!' }
       format.json { head :no_content }
     end
   end

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   #resources :organizacion
   get 'admin/index'
   get 'sesion/crear'
-  get 'sesion/cerrar'
+  get 'sesion/eliminarSesion' => 'sesion#eliminarSesion', as: "cerrarSesion"
   get 'sesion', to: 'sesion#inicio'
   post 'sesion', to: 'sesion#crear'
   #routes Acceso 
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   patch 'usuario/:id' => 'usuario#actualizar'
   put 'usuario/:id' => 'usuario#actualizar'
 
+  delete "usuario/:id" => "usuario#eliminar", as: "usuario_eliminar"
 
   #routes verificacion
   get 'verificacion', to: 'verificacion#index'
@@ -36,6 +37,8 @@ Rails.application.routes.draw do
   put "organizacion/:id/" => "organizacion#update"
   get 'organzacion/:id' => 'organizacion#mostrar', as: :organizacion_mostrar
   get "organizacion/:id/", to: "organizacion#editar", as: :organizacion_editar
+
+  delete "organizacion/:id" => "organizacion#eliminar", as: "organizacion_eliminar"
   #resources  :organizacion, only: [:update ]
 
   #This routes Persona controller and model
@@ -49,6 +52,7 @@ Rails.application.routes.draw do
   get "persona/:id/", to: "persona#editar", as: "persona_editar"
   patch "persona/:id" => "persona#actualizar", as: "persona_actualizar"
   put "persona/:id" => "persona#actualizar"
+  delete "persona/:id" => "persona#eliminar", as: "persona_eliminar"
 
 
 end

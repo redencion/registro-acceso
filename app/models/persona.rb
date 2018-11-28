@@ -3,6 +3,7 @@ class Persona < ApplicationRecord
   validates :nombre, :apellido, :cedula, :credencial, :organizacion_id,   presence: {message: "\t EL campo es requerido"}
   validates :cedula, :credencial, uniqueness: {message: "\t¡El dato ya existe!"}
   belongs_to :organizacion
+  has_many :acceso
 
 
   def buscarPersona
