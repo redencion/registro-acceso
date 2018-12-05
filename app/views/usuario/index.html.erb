@@ -1,5 +1,11 @@
 
-<p id="notice"><%= notice %></p>
+<% if notice %>
+    <script>
+$(function() {
+    M.toast({html:'<%= notice %>'}, 3000);
+});
+    </script>
+<% end %>
 
 <h1>Usuarios</h1>
 

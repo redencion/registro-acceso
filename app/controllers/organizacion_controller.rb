@@ -5,6 +5,7 @@ class OrganizacionController < ApplicationController
 
   def index
     @organizacion = Organizacion.all  
+    @organizacion = Organizacion.order(:nombre).page(params[:page]).per_page(5)
   end
 
   def registrar

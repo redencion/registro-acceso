@@ -5,7 +5,7 @@ class PersonaController < ApplicationController
   # GET /personas
   # GET /personas.json
   def index
-    @personas = Persona.order(params[:sort]).page(params[:page]).per_page(2)
+    @personas = Persona.order(params[:sort]).page(params[:page]).per_page(5)
     #@personas = Persona.all
   end
 
@@ -40,7 +40,7 @@ class PersonaController < ApplicationController
 
     respond_to do |format|
       if @persona.save
-        format.html { redirect_to :index, notice: ' ¡Persona ha sido creado satifactoriamente! ' }
+        format.html { redirect_to persona_path, notice: ' ¡Persona ha sido creado satifactoriamente! ' }
         format.json { render :mostrar, status: :created, location: @persona }
       else
         format.html { render :registrar }

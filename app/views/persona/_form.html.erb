@@ -13,32 +13,32 @@
             <% end %>
             <div class="row">
                 <div class="input-field col s4">
-                    <%= f.label :organizacion_id %>
                     <%= select("persona","organizacion_id", Organizacion.all.collect {|o| [ o.nombre, o.organizacion_id ]}, {prompt: 'Selecciona'})%>
+                    <%= f.label :organizacion %>
                 </div>
                 <div class="input-field col s4">
-                    <%= f.label :cedula %>
                     <%= f.text_field :cedula, 'data-length': '10', id: "input_text" %>
+                    <%= f.label :cedula, class:'active' %>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s4">
-                    <%= f.label :nombre %>
                     <%= f.text_field :nombre %>
+                    <%= f.label :nombre %>
                 </div>
                 <div class="input-field col s4">
-                    <%= f.label :apellido %>
                     <%= f.text_field :apellido %>
+                    <%= f.label :apellido %>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s4">
-                    <%= f.label :credencial %>
                     <%= f.text_field :credencial %>
+                    <%= f.label :credencial %>
                 </div>
                 <div class="input-field col s4">
-                    <%= f.label :estatus %>
                     <%= f.check_box :estatus %>
+                    <%= f.label :estatus %>
                 </div>
             </div>
             <div class="actions">
@@ -56,4 +56,12 @@ var url =  String(input.action);
       var nueva_url = url.replace(/http:\/\/localhost:3000/g,"");
       input.action= nueva_url.replace(/\./g,"/");
   }
+$(document).ready(function(){
+     M.updateTextFields();
+              
+            
+    $('.tooltipped').tooltip();
+    $('select').formSelect();
+              
+});
 </script>

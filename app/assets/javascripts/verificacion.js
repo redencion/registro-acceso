@@ -15,7 +15,7 @@ $(document).ready(function(){
     });
 });
     $(function (){
-        $("#verificacion_credencial").change(function(){
+        $("#verificacion_credencial").on('input',function(){
             $(this).parents("form").submit();
         });
     })

@@ -1,12 +1,20 @@
-<p id="notice"> <%= notice %></p>
+<% if notice %>
+    <script>
+$(function() {
+    M.toast({html:'<%= notice %>'}, 3000);
+});
+    </script>
+<% end %>
 
 <h1>Listando Informacion </h1>
 
+ <%= link_to '<i class="material-icons">note_add </i>'.html_safe, organizacion_nueva_path, class: "btn tooltipped" , 'data-position': "bottom", 'data-tooltip': "Registrar" %>
 <table>
     <thead>
         <tr>
             <th>Nombre</th>
             <th>Fecha registro</th>
+      <th colspan="3"></th>
         </tr>
     </thead>
     <tbody>
@@ -14,15 +22,15 @@
           <tr>
             <td><%= org.nombre %></td>
             <td><%= org.fecha_registro %></td>
-            <td><%= link_to 'mostrar', organizacion_mostrar_path(org) %></td>
-            <td><%= link_to 'editar', organizacion_editar_path(org) %></td>
-             <td><%= link_to 'Eliminar', organizacion_eliminar_url(org), method: :delete, data: { confirm: 'Esta seguro de eliminar esta organizacion!?' } %></td>
+            <td><%= link_to '<i class="material-icons">remove_red_eye </i>'.html_safe, organizacion_mostrar_path(org) %></td>
+            <td><%= link_to '<i class="material-icons">edit </i>'.html_safe, organizacion_editar_path(org) %></td>
+             <td><%= link_to '<i class="material-icons">delete </i>'.html_safe, organizacion_eliminar_url(org), method: :delete, data: { confirm: 'Esta seguro de eliminar esta organizacion!?' } %></td>
           </tr>
         <%end%>
     </tbody>
 </table>
 <br>
-<%= link_to 'Registrar Organizacion', organizacion_nueva_path %>
+  <%= will_paginate @organizacion %>
 
 
 

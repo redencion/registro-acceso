@@ -12,11 +12,11 @@ class Acceso < ApplicationRecord
       @acceso_persona = Acceso.where(["persona_id = ?", id]).order("acceso_id desc").first
       if !@acceso_persona.nil? 
 
-        if @acceso_persona.fecha_entrada && @acceso_persona.fecha_salida
+        if @acceso_persona.fecha_entrada and @acceso_persona.fecha_salida
           inforAcceso= {'entrada':'registro','salida':'registro'}
-        elsif @acceso_persona.fecha_entrada
+        elsif @acceso_persona.fecha_entrada and !@acceso_persona.fecha_salida
           inforAcceso = {'entrada':@acceso_persona.fecha_entrada ,'salida':'', 'id_acceso': @acceso_persona.acceso_id}
-        elsif @acceso_persona.fecha_salida
+        elsif @acceso_persona.fecha_salida and !@acceso_persona.fecha_entrada
           inforAcceso = {'entrada':'', 'salida': @acceso_persona.fecha_salida}
         end
       else

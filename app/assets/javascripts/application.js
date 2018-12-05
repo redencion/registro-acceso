@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require rails.validations
 //= require_tree .
-//= require materialize
+//= require materialize-sprockets
 
     $(document).ready(function(){
      /*   var inputBusqueda;
@@ -27,17 +27,14 @@
 
                 });
         })*/
-        $(document).ready(function(){
-                $('select').formSelect();
-        });
-        $(document).on("turbolinks:load",function() {
-              $.rails.refreshCSRFTokens();
+      M.updateTextFields();
+       $('select').formSelect();
+       $(document).on("turbolinks:load",function() {
+           $.rails.refreshCSRFTokens();
 
-        })
-        $(document).ready(function(){
-                $('.tooltipped').tooltip();
+       })
+        $('.tooltipped').tooltip();
 
-        });
 
 
     })
