@@ -42,6 +42,19 @@ gem 'sass-rails', '~> 5.0'
 gem 'materialize-sass', '~> 1.0.0'
 gem 'material_icons'
 
+
+gem "rubyzip", ">= 1.2.2"
+
+
+
+gem "rack", ">= 2.0.6"
+
+
+
+gem "loofah", ">= 2.2.3"
+
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

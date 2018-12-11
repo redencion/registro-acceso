@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'usuario/nuevo', to: 'usuario#nuevo'
   post 'usuario', to: 'usuario#crearUsuario'
   get 'usuario/:id' => 'usuario#editar', as: 'usuario_editar'
+  get 'usuario/:id' => 'usuario#mostrar', as: 'usuario_mostrar'
   patch 'usuario/:id' => 'usuario#actualizar'
   put 'usuario/:id' => 'usuario#actualizar'
 

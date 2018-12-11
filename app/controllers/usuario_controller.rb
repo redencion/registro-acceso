@@ -5,6 +5,9 @@ class UsuarioController < ApplicationController
     @usuario = Usuario.all
   end
 
+  def mostrar
+  end
+
   def nuevo
     @usuario = Usuario.new
   end
