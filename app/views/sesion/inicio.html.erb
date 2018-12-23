@@ -1,29 +1,44 @@
+<style>
+.login {
+    position: absolute;
+    margin: 4em;
+
+}
+
+</style>
 
 <div class="row">
-    <% if flash[:alert] %>
-        <p id="notice"><%= flash[:alert] %></p>
-    <% end %>
+    <%=  form_tag method: "post"   do %>
+        <div class='col s6 login push-s3'>
+            <% if flash[:alert] %>
+                <script>
+                        $(function() {
+                        M.toast({html:'<%= flash[:alert] %>'}, 3000);
+                });
+                </script>
+            <% end %>
+            <div class="card medium " >
+                <div class="card-content">
+                    <div class="row">
+                        <div class="input-field col s12 ">
+                            <%= label_tag :usuario, "Correo: "%><br>
+                            <%= text_field_tag :correo, params[:correo] %><br>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class="input-field col s12">
+                            <%= label_tag :usuario, "password"%><br>
+                            <%= text_field_tag :password, params[:password] %><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-action">
 
-    <%=  form_tag(method: "post") do %>
-        <div class='col s10' >
-        <fieldset>
-            <legend>Inicie Sesion </legend>
-            <div class="row">
-                <div class="input-field col s6">
-                    <%= label_tag :usuario, "Correo: "%><br>
-                    <%= text_field_tag :correo, params[:correo] %><br>
+                    <div class='row'>
+                        <%= submit_tag "Login" %>
+                    </div>
                 </div>
             </div>
-            <div class='row'>
-                <div class="input-field col s6">
-                    <%= label_tag :usuario, "password"%><br>
-                    <%= text_field_tag :password, params[:password] %><br>
-                </div>
-            </div>
-            <div class='row'>
-                <%= submit_tag "Login" %>
-            </div>
-        </fieldset>
         </div>
-        <% end %>
 </div>
+    <% end %>
