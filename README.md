@@ -1,5 +1,5 @@
 # README
-Es una aplicación muy simple para aprender a usar las propiedades de rails
+Es una aplicación muy simple para aprender a usar las propiedades de rails.
 
 
 * Ruby version 2.5
@@ -10,5 +10,7 @@ Es una aplicación muy simple para aprender a usar las propiedades de rails
 
 * Database creation mysql 5.1
 
-* ...
+Framework Css
+* Materialize 
+
 # registro-acceso
