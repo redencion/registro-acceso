@@ -1,5 +1,5 @@
 # README
-Es una aplicación muy simple para aprender a usar las propiedades de rails.
+Es una aplicación muy simple para aprender a usar propiedades elementales  de rails, para un principiate.
 
 
 * Ruby version 2.5
